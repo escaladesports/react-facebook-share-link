@@ -18,6 +18,7 @@
     "build": "esca-scripts build",
     "dev": "esca-scripts dev",
     "prepublishOnly": "npm run build",
+    "reset": "esca-scripts reset",
     "serve": "esca-scripts serve --src dist-test",
     "test": "npm run build && npm run test:bundle && npm run test:run",
     "test:bundle": "esca-scripts bundle --src test/wrapper/index.html --dist dist-test",
