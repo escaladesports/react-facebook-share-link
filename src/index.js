@@ -1,18 +1,29 @@
 import React from 'react'
 
-class TestComponent extends React.Component {
+class FacebookShare extends React.Component {
+	constructor(props) {
+		super(props)
+		this.state = {
+			link: props.link
+		}
+	}
+	componentDidMount() {
+		if (!this.state.link) {
+			this.setState({
+				link: document.location.href
+			})
+		}
+	}
+	componentDidReceiveProps() {
+		if (this.props.link) {
+			this.setState({
+				link: this.props.link
+			})
+		}
+	}
 	render() {
-		return (
-			<div className='TestComponent'>
-				Test component.
-				<style jsx global>{`
-					.TestComponent{
-						color: #f00;
-					}
-				`}</style>
-			</div>
-		)
+		return this.props.children(`https://www.facebook.com/sharer.php?u=${encodeURIComponent(this.state.link)}`)
 	}
 }
 
-export default TestComponent
+export default FacebookShare

@@ -1,18 +1,33 @@
-# React Component Boilerplate
+# react-facebook-share-link
 
-A simple React boilerplate for both Node modules and browser.
+Create "share this on Facebook" links in React.
 
-## Getting started
+## Installation
+
+With npm:
 
 ```bash
-git clone git@github.com:escaladesports/react-component-boilerplate.git --depth=1 your-component
-cd your-component
-yarn
-yarn reset
+npm install --save react-facebook-share-link
+```
+
+Or with Yarn:
+
+```bash
+yarn add react-facebook-share-link
 ```
 
 ## Usage
 
-- `yarn dev`: Runs a local dev server from the `dev` directory
-- `yarn build`: Builds `src` for Node
-- `yarn bundle`: Bundles `src/inject.js` for browser
+```jsx
+import ShareLink from 'react-facebook-share-link'
+
+...
+
+<ShareLink link='https://your-site.com/some-page'>
+   {link => (
+      <a href={link} target='_blank'>Share this on Facebook</a>
+   )}
+</ShareLink>
+```
+
+If you don't pass in a `link` prop, it will use the current page (`window.location.href`).
