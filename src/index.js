@@ -14,9 +14,11 @@ class FacebookShare extends React.Component {
 			})
 		}
 	}
-	componentWillReceiveProps({ link }) {
-		if (link) {
-			this.setState({ link })
+	componentDidUpdate(prevProps) {
+		if (this.props.link !== prevProps.link) {
+			this.setState({
+				link: this.props.link
+			})
 		}
 	}
 	render() {
